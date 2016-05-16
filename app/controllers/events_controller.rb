@@ -27,6 +27,14 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
 
+  def subscribe
+    if user_signed_in?
+      @event = Event.find(params[:id])
+      @event.users << current_user
+    end
+    redirect_to :back
+  end
+
   private
    def event_params
       params.require(:event).permit(:name, :address, :description, :event_date, :event_time, :min_users, :max_users, :user_id, :category_id)

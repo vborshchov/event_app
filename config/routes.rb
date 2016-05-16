@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
     resources :events, only: [:index, :show, :new, :create]
+    post 'events/:id/subscribe' => 'events#subscribe', as: :subscribe
 
   # Example resource route with options:
   #   resources :products do

@@ -6,5 +6,5 @@ class Event < ActiveRecord::Base
   alias_attribute :creator, :user
   alias_attribute :subscribers, :users
 
-  validates_presence_of :user, :category
+  validates_presence_of :user, :category, :name
 end
