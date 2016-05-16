@@ -1,2 +1,11 @@
 <h1>Events#show</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+  <b>name:</b> <%= @event.name %> <br>
+  <b>description:</b> <%= @event.description %> <br>
+  <b>date:</b> <%= @event.event_date %> <br>
+  <b>address:</b> <%= @event.address %> <br>
+  <b>min users:</b> <%= @event.min_users %> <br>
+  <b>max users:</b> <%= @event.max_users %> <br>
+  <b>Created by:</b> <%= @event.creator && @event.creator.name %> <br>
+
+
+<%= subscribe_button @event%>
