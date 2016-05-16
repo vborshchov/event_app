@@ -43,3 +43,7 @@ group :development, :test do
   gem 'spring'
 end
 
+gem 'devise'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'devise-bootstrap-views'
+gem 'bootstrap-datepicker-rails'
