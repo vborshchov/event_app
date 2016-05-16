@@ -1,14 +1,12 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create, :subscribe]
+
   def index
     @events = Event.all
   end
 
   def new
-    if user_signed_in?
-      @event = Event.new()
-    else
-      redirect_to new_user_session_path
-    end
+    @event = Event.new()
   end
 
   def create
@@ -28,10 +26,8 @@ class EventsController < ApplicationController
   end
 
   def subscribe
-    if user_signed_in?
-      @event = Event.find(params[:id])
-      @event.users << current_user
-    end
+    @event = Event.find(params[:id])
+    @event.users << current_user
     redirect_to :back
   end
 
