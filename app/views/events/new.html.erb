@@ -1,0 +1,12 @@
+<h1>Events#new</h1>
+<%= form_for @event, url: {action: "create"}, html: {class: "form"} do |f| %>
+  <%= f.text_field :name %> <br>
+  <%= f.text_area :description, size: "30x5" %> <br>
+  <%= f.select :min_users, [['1-3', 1], ['4-8', 4], ['9 and more',9]]%> <br>
+  <%= f.select :max_users, [['1-3', 1], ['4-8', 4], ['9 and more',9]]%> <br>
+  <%= f.select :category_id, Category.all.map{|category| [category.name, category.id]} %> <br>
+  <%= f.text_field :event_date, readonly: true, data:{provide:"datepicker"}%> <br>
+  <%= f.time_select :event_time %> <br>
+  
+  <%= f.submit "Add" %>
+<% end %>

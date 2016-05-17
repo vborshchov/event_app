@@ -10,6 +10,31 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  */
+
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "devise_bootstrap_views";
+ @import "bootstrap-datepicker3";
+
+ 
+ul.hmenu {
+  list-style: none; 
+  margin: 0 0 2em;
+  padding: 0;
+}
+
+ul.hmenu li {
+  display: inline;  
+}
+
+.img {
+    position: relative;
+}
+
+.caption {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    width: 100%;
+}
