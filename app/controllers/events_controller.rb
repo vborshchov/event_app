@@ -4,13 +4,13 @@ class EventsController < ApplicationController
   def index
     @categories = Category.all
     if params[:search]
-      @events = Event.search(params[:search]).order("created_at DESC")
+      @events = Event.search(params[:search]).order("created_at DESC").page(params[:page])
     else
-      @events = Event.all.order('created_at DESC')
+      @events = Event.all.order('created_at DESC').page(params[:page])
     end
     if params[:category].present?
       @category = Category.find_by_id(params[:category])
-      @events = @category.events.order('created_at DESC') if @category
+      @events = @category.events.order('created_at DESC').page(params[:page]) if @category
     end
   end
 

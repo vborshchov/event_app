@@ -8,6 +8,8 @@ class Event < ActiveRecord::Base
 
   validates_presence_of :user, :category, :name
 
+  paginates_per 2
+
   def self.search(search)
     where('name LIKE ?  OR description LIKE ?', "%#{search}%", "%#{search}%")
   end

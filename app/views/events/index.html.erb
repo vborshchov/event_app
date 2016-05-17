@@ -29,11 +29,14 @@
     <% end %>
   </ul>
   <% if @events.present? %>
-    <%= render @events %>
+    <%= render @events%>
+    <div class="text-center">
+      <%= paginate @events, :theme => 'twitter-bootstrap-3' %>
+    </div>
   <% else %>
     <p>There are no events containing the term(s) <%= params[:search] %>.</p>
   <% end %>
-
+  <hr>
 </div>
 
 <div class="col-sm-4">
