@@ -14,10 +14,25 @@
   </div>
 <% end %>
 
-<h2>List of events</h2>
+<div class="container"><h2>List of events</h2></div>
 
-<% if @events.present? %>
-  <%= render @events %>
-<% else %>
-  <p>There are no events containing the term(s) <%= params[:search] %>.</p>
-<% end %>
+<div class="container"> 
+  <ul class="nav nav-tabs">
+    <% for category in @categories do %>
+      <% if category.id == params[:category].to_i %>
+        <li class="active">
+      <% else %>
+        <li>  
+      <% end %>
+          <%= link_to category.name, events_path(category: category.id) %>
+        </li>
+    <% end %>
+  </ul>
+  <% if @events.present? %>
+    <%= render @events %>
+  <% else %>
+    <p>There are no events containing the term(s) <%= params[:search] %>.</p>
+  <% end %>
+  
+</div>
+

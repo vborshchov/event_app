@@ -2,11 +2,15 @@ class EventsController < ApplicationController
   before_filter :authenticate_user!, only: [:new, :create, :subscribe]
 
   def index
-    @events = Event.all
+    @categories = Category.all
     if params[:search]
       @events = Event.search(params[:search]).order("created_at DESC")
     else
       @events = Event.all.order('created_at DESC')
+    end
+    if params[:category].present?
+      @category = Category.find_by_id(params[:category])
+      @events = @category.events.order('created_at DESC') if @category
     end
   end
 
