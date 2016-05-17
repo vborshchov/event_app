@@ -1,8 +1,17 @@
 <%= render "carousel"%>
 
+<h2>Find your event</h2>
 <%= form_tag(events_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :search, params[:search], placeholder: "Search Events" %>
-  <%= submit_tag "Search" %>
+  <div class="row">
+     <div class="col-lg-12">
+      <div class="input-group input-group-lg">
+        <%= text_field_tag :search, params[:search], placeholder: "Find event", class: "form-control" %>
+        <span class="input-group-btn">
+          <%= submit_tag "Find", class: "btn btn-primary" %>
+        </span>
+      </div>
+    </div>
+  </div>
 <% end %>
 
 
