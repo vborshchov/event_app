@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-    resources :events, only: [:index, :show, :new, :create]
-    post 'events/:id/subscribe' => 'events#subscribe', as: :subscribe
+  resources :events, only: [:index, :show, :new, :create]
+  post 'events/:id/subscribe' => 'events#subscribe', as: :subscribe
 
+  resources :users, only: [:show]
+  post 'users/:id/subscribe' => 'users#subscribe', as: :follow
   # Example resource route with options:
   #   resources :products do
   #     member do
