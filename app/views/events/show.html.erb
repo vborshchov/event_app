@@ -1,11 +1,59 @@
-<h1>Events#show</h1>
-  <b>name:</b> <%= @event.name %> <br>
-  <b>description:</b> <%= @event.description %> <br>
-  <b>date:</b> <%= @event.event_date %> <br>
-  <b>address:</b> <%= @event.address %> <br>
-  <b>min users:</b> <%= @event.min_users %> <br>
-  <b>max users:</b> <%= @event.max_users %> <br>
-  <b>Created by:</b> <%= @event.creator && @event.creator.name %> <br>
-
-
-<%= subscribe_button_for @event%>
+<div class="col-xs-9 right-border">
+  <div class="row">
+    <div class="col-xs-12">
+      <h2><%= @event.name %></h2>
+    </div>
+    <div class="col-xs-3">
+      <%= image_tag("logo")%>
+    </div>
+    <div class="col-xs-9">
+      <%= @event.description %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-4">
+      <p>
+        <b>Event category:</b> <%= @event.category.name %>
+      </p>
+      <p>
+        <b>Date:</b> <%= @event.event_date %>
+      </p>
+      <p>
+        <b>Time:</b> <%= @event.event_time %>
+      </p>
+      <p>
+        <b>Address:</b> <%= @event.address %>
+      </p>
+    </div>
+    <div class="col-xs-4">
+      <%= subscribe_button_for @event%>
+    </div>
+    <div class="col-xs-4">
+      <p>
+        <b>Max members:</b> <%= @event.max_users %>
+      </p>
+      <p>
+        <b>Signed:</b> <%= @event.users.count %>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="col-xs-3">
+  <h2 class="text-center"> <%= @event.creator.name %> </h2>
+  <p class="text-center">
+    <%= image_tag("logo")%>
+  </p>
+  <p>
+    <b>Phone:</b> <%= @event.creator.phone %>
+  </p>
+  <p>
+    <b>Skype:</b> <%= @event.creator.skype %>
+  </p>
+  <p>
+    <b>Site:</b> <%= @event.creator.site %>
+  </p>
+  <p class="text-center">
+    <%#= link_to "Open profile", user_path(@event.creator), class: "btn btn-primary"%>
+    <%= link_to "Open profile", "#", class: "btn btn-primary"%>
+  </p>
+</div>
