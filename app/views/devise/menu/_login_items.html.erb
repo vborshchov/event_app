@@ -1,5 +1,12 @@
 <% if user_signed_in? %>
-  <%= link_to(raw("<span class='glyphicon glyphicon-log-out' aria-hidden='true'> Logout"), destroy_user_session_path, :method => :get) %>        
+  <li>
+    <%= link_to(raw("<span class='glyphicon glyphicon-user' aria-hidden='true'> #{current_user.name}"), user_path(current_user)) %>
+  </li>
+  <li>
+    <%= link_to(raw("<span class='glyphicon glyphicon-log-out' aria-hidden='true'> Logout"), destroy_user_session_path, :method => :get) %>
+  </li>
 <% else %>
-  <%= link_to(raw("<span class='glyphicon glyphicon-log-in' aria-hidden='true'> Login"), new_user_session_path)  %>  
+  <li>
+    <%= link_to(raw("<span class='glyphicon glyphicon-log-in' aria-hidden='true'> Login"), new_user_session_path)  %>
+  </li>
 <% end %>
