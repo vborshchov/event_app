@@ -20,7 +20,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.event_date = Date.strptime(params[:event][:event_date], "%d/%m/%Y")
+    @event.event_date = Date.strptime(params[:event][:event_date], "%m/%d/%Y")
     @event.user = current_user
 
     if @event.save
@@ -41,7 +41,7 @@ class EventsController < ApplicationController
   end
 
   private
-   def event_params
+    def event_params
       params.require(:event).permit(:name, :address, :description, :event_date, :event_time, :min_users, :max_users, :user_id, :category_id)
     end
 end

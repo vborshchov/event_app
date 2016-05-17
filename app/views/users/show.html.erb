@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2><%= @user.name %></h2>
+  </div>
+  <div class="row">
+    <div class="col-xs-8 right-border">
+      <div class="col-xs-4">
+        <%= image_tag("logo")%>
+      </div>
+      <div class="col-xs-8">
+        <p><b>Name:</b><%= @user.name %></p>
+        <p><b>Email:</b><%= @user.email %></p>
+        <p><b>Phone:</b><%= @user.phone %></p>
+        <p><b>Site:</b><%= @user.site %></p>
+        <p><b>Skype:</b><%= @user.skype %></p>
+      </div>
+      <div class="col-xs-12">
+        <h3>About me:</h3>
+        <p><%= @user.description %></p>
+      </div>
+      <div class="pull-right">
+        <%= follow_button_for @user%>
+      </div>
+    </div>
+    <div class="col-xs-4">
+      <h3>Event list</h3>
+      <% for event in @events do %>
+        <h4><%= link_to event.name, event_path(event) %></h4>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <%= render @user.subscribers %>
+</div>
