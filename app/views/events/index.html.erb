@@ -16,13 +16,13 @@
 
 <div class="container"><h2>List of events</h2></div>
 
-<div class="container"> 
+<div class="container">
   <ul class="nav nav-tabs">
     <% for category in @categories do %>
       <% if category.id == params[:category].to_i %>
         <li class="active">
       <% else %>
-        <li>  
+        <li>
       <% end %>
           <%= link_to category.name, events_path(category: category.id) %>
         </li>
@@ -33,6 +33,25 @@
   <% else %>
     <p>There are no events containing the term(s) <%= params[:search] %>.</p>
   <% end %>
-  
+
+</div>
+
+<div class="col-sm-4">
+  <h2>Lorem ipsum dolor sit amet</h2>
+  <p>
+    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde ex ullam illum dolor architecto perspiciatis numquam praesentium cumque ab, hic perferendis omnis adipisci magnam? Architecto voluptate, eius aspernatur doloribus delectus.</span><span>Nobis consequuntur nisi nulla natus fugit, adipisci asperiores obcaecati odit, nesciunt porro, vitae sapiente eaque dolorem. Praesentium dolorem consectetur, iusto, eos minus ut sunt voluptatum eius cupiditate enim soluta perspiciatis.</span>
+  </p>
+</div>
+<div class="col-sm-4">
+  <h2>Lorem ipsum dolor sit amet</h2>
+  <p>
+    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia quis ipsam eveniet illo fugiat a quas veritatis rerum perferendis error et, nihil obcaecati quae est ad harum facere distinctio veniam!</span><span>Eius cupiditate incidunt magnam ipsum vel reprehenderit quisquam sapiente commodi voluptatem, excepturi, praesentium labore quos perspiciatis provident inventore, consequatur cumque expedita totam! Incidunt quam nesciunt perspiciatis necessitatibus cumque? Dolore, dolores.</span>
+  </p>
+</div>
+<div class="col-sm-4">
+  <h2>Lorem ipsum dolor sit amet</h2>
+  <p>
+    <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, illum necessitatibus voluptas, voluptatem fugit maiores nesciunt temporibus pariatur officia impedit neque atque assumenda nam similique aspernatur repudiandae, deleniti eaque tempore?</span><span>At delectus qui illo alias voluptatem sint quis, voluptatum accusantium architecto, aliquid id obcaecati fuga ut, dolore unde. Veritatis est voluptate reprehenderit veniam amet ipsum optio repellendus fuga provident dolores!</span>
+  </p>
 </div>
 
