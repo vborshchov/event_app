@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2><%= link_to event.name, event_path(event) %> </h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-9">
+    <div class="row">
+      <div class="col-xs-3">
+        <%= image_tag("logo")%>
+      </div>
+      <div class="col-xs-9">
+        <%= event.description %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-9">
+        <p>
+          <b>Organizator name:</b> <%= event.creator.name %>
+        </p>
+      </div>
+      <div class="col-xs-3">
+        <%= subscribe_button_for event%>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-3">
+    <p>
+      <b>Date:</b> <%= event.event_date %>
+    </p>
+    <p>
+      <b>Time:</b> <%= event.event_time %>
+    </p>
+    <p>
+      <b>Max members:</b> <%= event.max_users %>
+    </p>
+    <p>
+      <b>Signed:</b> <%= event.users.count %>
+    </p>
+  </div>
+</div>

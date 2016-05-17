@@ -7,4 +7,8 @@ class Event < ActiveRecord::Base
   alias_attribute :subscribers, :users
 
   validates_presence_of :user, :category, :name
+
+  def self.search(search)
+    where('name LIKE ?  OR description LIKE ?', "%#{search}%", "%#{search}%")
+  end
 end
