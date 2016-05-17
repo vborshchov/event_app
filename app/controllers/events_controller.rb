@@ -3,6 +3,11 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    if params[:search]
+      @events = Event.search(params[:search]).order("created_at DESC")
+    else
+      @events = Event.all.order('created_at DESC')
+    end
   end
 
   def new
@@ -12,7 +17,7 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.event_date = Date.strptime(params[:event][:event_date], "%d/%m/%Y")
-    @event.user = current_user if user_signed_in?
+    @event.user = current_user
 
     if @event.save
       redirect_to @event, notice: 'Event was successfully created.'
